@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snow Peak Demo Navigator</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f8fafc;
+      color: #111827;
+      height: 100vh;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <iframe
+    id="content-frame"
+    src="./snowpeak管理画面.html"
+    title="Snow Peak Content Frame"
+    loading="eager"
+  ></iframe>
+
+  <script>
+    const pages = {
+      detail: "./詳細.html",
+      admin: "./snowpeak管理画面.html",
+    };
+
+    const frame = document.getElementById("content-frame");
+
+    function navigate(page) {
+      if (!pages[page]) return;
+      frame.src = pages[page];
+    }
+
+    window.addEventListener("message", (event) => {
+      if (!event.data || event.data.type !== "snowpeak:navigate") return;
+      navigate(event.data.page);
+    });
+  </script>
+</body>
+</html>
