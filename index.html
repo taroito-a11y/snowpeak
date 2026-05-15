@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kintetsu HD Demo Navigator</title>
+  <title>Snow Peak Demo Navigator</title>
   <style>
     :root {
       color-scheme: light;
@@ -32,15 +32,15 @@
 <body>
   <iframe
     id="content-frame"
-    src="./kintetsu管理画面.html"
-    title="Kintetsu HD Content Frame"
+    src="./snowpeak管理画面.html"
+    title="Snow Peak Content Frame"
     loading="eager"
   ></iframe>
 
   <script>
     const pages = {
       detail: "./詳細.html",
-      admin: "./kintetsu管理画面.html",
+      admin: "./snowpeak管理画面.html",
     };
 
     const frame = document.getElementById("content-frame");
@@ -51,7 +51,7 @@
     }
 
     window.addEventListener("message", (event) => {
-      if (!event.data || event.data.type !== "kintetsu:navigate") return;
+      if (!event.data || event.data.type !== "snowpeak:navigate") return;
       navigate(event.data.page);
     });
   </script>

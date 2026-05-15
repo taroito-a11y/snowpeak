@@ -1,8 +1,0 @@
-{
-  "name": "kintetsu",
-  "private": true,
-  "type": "module",
-  "dependencies": {
-    "@vercel/functions": "^3.4.3"
-  }
-}

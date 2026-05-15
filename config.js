@@ -1,1 +1,0 @@
-window.KINTETSU_CONFIG = window.KINTETSU_CONFIG || {};
