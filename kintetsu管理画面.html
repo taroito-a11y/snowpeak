@@ -88,6 +88,10 @@
 
         /* チェックボックスとラジオボタンのカスタムスタイル */
         .custom-checkbox:checked + div { background-color: #111827; border-color: #111827; color: white; }
+        .custom-checkbox + div .checked-indicator { opacity: 0; transform: scale(0.85); }
+        .custom-checkbox:checked + div .checked-indicator { opacity: 1; transform: scale(1); }
+        .custom-checkbox + div .selected-label { display: none; }
+        .custom-checkbox:checked + div .selected-label { display: inline-flex; }
         .custom-radio:checked + div { border-color: #111827; background-color: #f9fafb; box-shadow: 0 0 0 1px #111827; }
         .custom-radio:checked + div .radio-icon { color: #111827; }
     </style>
@@ -141,10 +145,10 @@
                             <h3 class="text-lg font-semibold text-gray-700 mb-1">新規配信作成</h3>
                             <p class="text-sm text-gray-500 text-center">AIを利用して新しいキャンペーンを構築</p>
                         </div>
-                        <div onclick="openDetailPage('春の桜名所巡りツアー先行案内')" class="border text-card-foreground shadow-sm h-[307px] cursor-pointer hover:shadow-md hover:-translate-y-1 transition-all bg-white border-gray-200 rounded-[14px]">
+                        <div onclick="openDetailPage('伊勢志摩プレミアム周遊パス先行案内')" class="border text-card-foreground shadow-sm h-[307px] cursor-pointer hover:shadow-md hover:-translate-y-1 transition-all bg-white border-gray-200 rounded-[14px]">
                             <div class="p-[25px] flex flex-col gap-[30px] h-full">
                                 <div class="flex justify-between items-start">
-                                    <h3 class="text-[16px] font-bold text-gray-900 leading-[22px] line-clamp-2 pr-2">春の桜名所巡りツアー先行案内</h3>
+                                    <h3 class="text-[16px] font-bold text-gray-900 leading-[22px] line-clamp-2 pr-2">伊勢志摩プレミアム周遊パス先行案内</h3>
                                     <div class="flex items-start gap-2 flex-shrink-0">
                                         <div class="flex flex-col gap-[8px] items-end">
                                             <div class="bg-gray-800 rounded-[8px] px-[9px] py-[3px]"><span class="text-[12px] text-white leading-[16px] font-medium">完了</span></div>
@@ -155,7 +159,7 @@
                                     <div class="flex justify-between items-center">
                                         <span class="text-[14px] text-gray-600 font-medium">2026-02-15</span>
                                     </div>
-                                    <p class="text-[14px] text-gray-600 leading-[22px] whitespace-pre-wrap line-clamp-3">【Seasonal March】過去に春の国内ツアーに参加した顧客層向けに、京都・奈良の桜名所を巡る特別プランを先行案内するメルマガ施策。</p>
+                                    <p class="text-[14px] text-gray-600 leading-[22px] whitespace-pre-wrap line-clamp-3">【Kintetsu Premium】近鉄グループの上位顧客向けに、観光特急しまかぜと沿線ホテル優待を組み合わせた伊勢志摩周遊プランを先行案内するメルマガ施策。</p>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +206,7 @@
                     </button>
                     <button id="tab-agent" onclick="switchModalMode('agent')" class="px-4 py-2 text-sm font-bold rounded-md transition-all text-gray-500 hover:text-gray-900 flex items-center gap-1.5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
-                        プランニングエージェントに相談
+                        DECA Agents に相談
                     </button>
                 </div>
             </div>
@@ -224,17 +228,17 @@
                                 </div>
                             </label>
                             <label class="relative cursor-pointer">
-                                <input type="radio" name="channel" value="line" class="custom-radio sr-only">
-                                <div class="border border-gray-200 rounded-lg p-4 flex flex-col items-center justify-center gap-2 transition-all bg-white hover:border-gray-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400 radio-icon transition-colors"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                                    <span class="text-sm font-semibold text-gray-700">LINE</span>
-                                </div>
-                            </label>
-                            <label class="relative cursor-pointer">
                                 <input type="radio" name="channel" value="app" class="custom-radio sr-only">
                                 <div class="border border-gray-200 rounded-lg p-4 flex flex-col items-center justify-center gap-2 transition-all bg-white hover:border-gray-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400 radio-icon transition-colors"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
                                     <span class="text-sm font-semibold text-gray-700">アプリPUSH</span>
+                                </div>
+                            </label>
+                            <label class="relative cursor-pointer">
+                                <input type="radio" name="channel" value="dm" class="custom-radio sr-only">
+                                <div class="border border-gray-200 rounded-lg p-4 flex flex-col items-center justify-center gap-2 transition-all bg-white hover:border-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400 radio-icon transition-colors"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                    <span class="text-sm font-semibold text-gray-700">DM</span>
                                 </div>
                             </label>
                         </div>
@@ -243,49 +247,27 @@
                     <div class="space-y-3">
                         <label class="text-sm font-bold text-gray-800 flex items-center gap-2">
                             <span class="bg-gray-200 text-gray-700 w-5 h-5 rounded-full inline-flex items-center justify-center text-xs">2</span>
-                            ターゲットランク選択 <span class="text-gray-400 text-xs font-normal">※複数選択可</span>
+                            DB選択 <span class="text-gray-400 text-xs font-normal">※複数選択可</span>
                         </label>
-                        <div class="flex flex-wrap gap-2">
-                            <label class="cursor-pointer relative">
-                                <input type="checkbox" class="custom-checkbox sr-only" checked>
-                                <div class="border border-gray-200 bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-gray-50 select-none">
-                                    💎 ダイヤモンド
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="relative cursor-pointer">
+                                <input type="checkbox" name="database" value="kips-member-id" class="custom-checkbox sr-only" checked>
+                                <div class="border border-gray-200 rounded-lg p-4 flex items-center justify-between gap-3 transition-all bg-white hover:border-gray-300 text-sm font-semibold text-gray-700">
+                                    <span>KIPS会員ID</span>
+                                    <span class="selected-label rounded-full bg-white/20 px-2 py-0.5 text-[11px]">選択中</span>
+                                    <span class="checked-indicator inline-flex size-5 items-center justify-center rounded-full bg-white text-gray-900 transition-all">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                                    </span>
                                 </div>
                             </label>
-                            <label class="cursor-pointer relative">
-                                <input type="checkbox" class="custom-checkbox sr-only" checked>
-                                <div class="border border-gray-200 bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-gray-50 select-none">
-                                    🔷 サファイア
-                                </div>
-                            </label>
-                            <label class="cursor-pointer relative">
-                                <input type="checkbox" class="custom-checkbox sr-only">
-                                <div class="border border-gray-200 bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-gray-50 select-none">
-                                    ⚫ ブラック
-                                </div>
-                            </label>
-                            <label class="cursor-pointer relative">
-                                <input type="checkbox" class="custom-checkbox sr-only">
-                                <div class="border border-gray-200 bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-gray-50 select-none">
-                                    👑 プラチナ
-                                </div>
-                            </label>
-                            <label class="cursor-pointer relative">
-                                <input type="checkbox" class="custom-checkbox sr-only">
-                                <div class="border border-gray-200 bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-gray-50 select-none">
-                                    ✨ ゴールド
-                                </div>
-                            </label>
-                            <label class="cursor-pointer relative">
-                                <input type="checkbox" class="custom-checkbox sr-only">
-                                <div class="border border-gray-200 bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-gray-50 select-none">
-                                    🥈 シルバー
-                                </div>
-                            </label>
-                            <label class="cursor-pointer relative">
-                                <input type="checkbox" class="custom-checkbox sr-only">
-                                <div class="border border-gray-200 bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-gray-50 select-none">
-                                    👤 レギュラー
+                            <label class="relative cursor-pointer">
+                                <input type="checkbox" name="database" value="common-id" class="custom-checkbox sr-only" checked>
+                                <div class="border border-gray-200 rounded-lg p-4 flex items-center justify-between gap-3 transition-all bg-white hover:border-gray-300 text-sm font-semibold text-gray-700">
+                                    <span>共通ID</span>
+                                    <span class="selected-label rounded-full bg-white/20 px-2 py-0.5 text-[11px]">選択中</span>
+                                    <span class="checked-indicator inline-flex size-5 items-center justify-center rounded-full bg-white text-gray-900 transition-all">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                                    </span>
                                 </div>
                             </label>
                         </div>
@@ -293,25 +275,14 @@
 
                     <div class="p-5 bg-white border border-gray-200 rounded-xl space-y-5 shadow-sm">
                         <div>
-                            <label class="block text-sm font-bold text-gray-800 mb-2">作成コンテンツ種別</label>
-                            <select id="contentType" class="w-full h-11 rounded-md border border-gray-300 bg-white px-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none">
-                                <option value="product">新商品・サービス紹介</option>
-                                <option value="promo">期間限定プロモーション・セール</option>
-                                <option value="event">イベント・セミナー招待</option>
-                                <option value="info">お役立ち情報・読み物コンテンツ</option>
-                                <option value="survey">アンケート・ヒアリング</option>
-                            </select>
-                        </div>
-
-                        <div>
                             <label class="block text-sm font-bold text-gray-800 mb-2">参考LP (URL)</label>
-                            <input type="url" id="referenceLp" class="w-full h-11 rounded-md border border-gray-300 px-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="https://example.com/campaign/..." value="https://premium-travel-dummy.com/kyoto-autumn">
+                            <input type="url" id="referenceLp" class="w-full h-11 rounded-md border border-gray-300 px-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="https://example.com/campaign/..." value="https://www.kintetsu.co.jp/senden/iseshima/">
                             <p class="text-xs text-gray-500 mt-1">AIがこのページを読み込み、商品特徴や魅力を自動抽出して原稿に反映します。</p>
                         </div>
 
                         <div>
                             <label class="block text-sm font-bold text-gray-800 mb-2">注意事項・細かな要望</label>
-                            <textarea id="notes" class="w-full rounded-md border border-gray-300 p-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="例: 「期間限定」を強く押し出してください。トーンは丁寧かつ高級感を持たせてください。" rows="3">富裕層向けのプランなので、価格よりも「特別な体験」「限定感」を強調した上品なトーンにしてください。</textarea>
+                            <textarea id="notes" class="w-full rounded-md border border-gray-300 p-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="例: 「期間限定」を強く押し出してください。トーンは丁寧かつ高級感を持たせてください。" rows="3">近鉄グループ上位顧客向けの案内なので、価格訴求よりも「特別な移動体験」「沿線で過ごす上質な時間」「会員限定感」を強調した上品なトーンにしてください。</textarea>
                         </div>
                     </div>
 
@@ -332,8 +303,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
                         </div>
                         <div class="bg-white border border-gray-200 rounded-2xl rounded-tl-none px-5 py-4 shadow-sm text-sm text-gray-800 leading-relaxed">
-                            <p>こんにちは！DECA コンテンツプランニングエージェントです。</p>
-                            <p class="mt-2">どのターゲット層に、どのような商品を届けたいですか？<br>例えば<strong>「休眠ユーザー向けに再来店を促すLINEを作りたい」「紹介したいLPのURLがあるんだけど、どの層に当てればいい？」</strong>のように、ざっくりと教えていただければ、最適な配信チャネルと構成をご提案します。</p>
+                            <p>こんにちは！DECA Agents です。</p>
+                            <p class="mt-2">休眠復活、上位顧客向け案内、沿線利用促進など、目的から一緒に設計できます。<br>例えば<strong>「しばらく利用のないKIPS会員を復活させたい。どのセグメントに、どんなコンテンツを当てるべき？」</strong>のように相談してください。</p>
                         </div>
                     </div>
                     
@@ -342,7 +313,7 @@
                             <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" class="w-full h-full">
                         </div>
                         <div class="bg-gray-900 text-white rounded-2xl rounded-tr-none px-5 py-4 shadow-sm text-sm leading-relaxed">
-                            <p>秋の京都特別宿泊プランのLP（https://example.com/lp）ができたんだけど、これを上位顧客に案内したい。どういうアプローチが良いかな？</p>
+                            <p>直近6か月利用のないKIPS会員を休眠復活させたいです。どのセグメントを優先すべきかと、どんなコンテンツを当てるべきか見たいです。</p>
                         </div>
                     </div>
 
@@ -351,22 +322,23 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
                         </div>
                         <div class="bg-white border border-gray-200 rounded-2xl rounded-tl-none p-5 shadow-sm text-sm text-gray-800 w-full">
-                            <p class="mb-4">承知いたしました。LPを解析した結果、高単価で「特別感」を重視した商材ですね。上位顧客（ダイヤモンド・サファイア層）へのアプローチとして、以下のようなプランはいかがでしょうか？</p>
+                            <p class="mb-4">承知いたしました。休眠復活では、いきなり高単価な旅行商品を出すより、過去接点に近い軽い再利用導線を作るのが有効です。優先セグメントと当てるコンテンツは以下がおすすめです。</p>
                             
                             <div class="border border-blue-100 bg-blue-50/50 rounded-xl p-4 mb-4">
                                 <h4 class="font-bold text-blue-900 mb-2 flex items-center gap-1.5">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                                    推奨設定プラン
+                                    推奨セグメント・コンテンツ
                                 </h4>
                                 <ul class="space-y-2 text-blue-800">
-                                    <li><strong>チャネル:</strong> HTMLメール（リッチなビジュアルで訴求）</li>
-                                    <li><strong>ターゲット:</strong> ダイヤモンド層・サファイア層</li>
-                                    <li><strong>コンテンツ:</strong> 新商品・サービス紹介</li>
-                                    <li><strong>トーン:</strong> 【限定招待】を強調したVIP向けの上品なトーン</li>
+                                    <li><strong>優先セグメント:</strong> 6か月以上未利用だが、過去に近鉄百貨店・沿線施設・日帰り旅行のいずれかを利用した会員</li>
+                                    <li><strong>チャネル:</strong> DM（再接触のきっかけを作り、アプリやLPへ誘導）</li>
+                                    <li><strong>コンテンツ:</strong> KIPSポイント優待付きの「週末日帰りおでかけ」特集</li>
+                                    <li><strong>訴求:</strong> 失効前ポイント、駅から行きやすい沿線スポット、短時間で使える限定優待</li>
+                                    <li><strong>次点セグメント:</strong> ホテル・観光特急の過去利用者には、伊勢志摩の季節プランをメールで追撃</li>
                                 </ul>
                             </div>
                             
-                            <p class="text-gray-600 mb-4">この内容で自動的に設定フォームを埋め、AI生成を開始することも可能です。</p>
+                            <p class="text-gray-600 mb-4">この内容で、休眠会員向けのDM原稿とLP誘導文を自動生成できます。</p>
                             
                             <button onclick="switchModalMode('form')" class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>
@@ -403,7 +375,7 @@
         // 親indexのiframe切り替えを優先し、単体表示時は既存のローカル詳細ビューへフォールバック
         function openDetailPage(title) {
             if (window.parent && window.parent !== window) {
-                window.parent.postMessage({ type: 'snowpeak:navigate', page: 'detail' }, '*');
+                window.parent.postMessage({ type: 'kintetsu:navigate', page: 'detail' }, '*');
                 return;
             }
             switchView('view-detail', title);

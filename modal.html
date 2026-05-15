@@ -1,0 +1,332 @@
+<div id="ma-approval-modal" class="hidden">
+        <div class="fixed inset-0 z-[70] bg-black/50 backdrop-blur-sm" onclick="toggleMaApprovalModal(false)"></div>
+        <div class="fixed left-1/2 top-1/2 z-[75] w-full max-w-[50vw] -translate-x-1/2 -translate-y-1/2">
+            <div class="relative rounded-lg border bg-white p-6 shadow-lg w-full max-h-[90vh] flex flex-col">
+                <div class="flex flex-col space-y-2 text-center sm:text-left shrink-0">
+                    <h2 class="text-lg font-semibold">MA に承認して送信</h2>
+                </div>
+                <div class="space-y-4 py-2 overflow-y-auto pr-1 flex-1 mt-2">
+                    <div class="space-y-2">
+                        <label class="font-medium text-xs text-muted-foreground">設定</label>
+                        <div class="space-y-1 text-sm">
+                            <div class="flex justify-between"><span class="text-muted-foreground">アクションタイプ</span><span class="font-medium">ノーマル メッセージ</span></div>
+                            <div class="flex justify-between"><span class="text-muted-foreground">チャネル</span><span class="font-medium">Email</span></div>
+                            <div class="flex justify-between"><span class="text-muted-foreground">アクション数</span><span class="font-medium">複数のアクション</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <label class="font-medium text-xs text-muted-foreground">メッセージ プレビュー</label>
+                        <div dir="ltr" data-orientation="horizontal">
+                            <div role="tablist" class="inline-flex bg-[#ececf0] rounded-[14px] p-[3px] gap-[3px] mb-2 flex-wrap">
+                                <button type="button" class="px-3 py-1.5 text-sm font-normal rounded-[14px] transition-all bg-white text-gray-900 shadow-sm ma-tab-btn" onclick="openMaTab(event, 'ma-seg-1')">プレミアム旅行志向の上得意層</button>
+                                <button type="button" class="px-3 py-1.5 text-sm font-normal rounded-[14px] transition-all text-gray-600 hover:text-gray-900 ma-tab-btn" onclick="openMaTab(event, 'ma-seg-2')">ポイント&便利志向のマルチユーザー</button>
+                                <button type="button" class="px-3 py-1.5 text-sm font-normal rounded-[14px] transition-all text-gray-600 hover:text-gray-900 ma-tab-btn" onclick="openMaTab(event, 'ma-seg-3')">休眠・一過性ユーザー層</button>
+                            </div>
+                            
+                            <div id="ma-seg-1" class="ma-tab-content mt-2">
+                                <div class="space-y-2">
+                                    <div class="rounded-md border bg-neutral-50 px-3 py-2 space-y-2 text-xs">
+                                        <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
+                                            <span class="text-muted-foreground font-medium">名前</span><span class="font-semibold truncate">春季キャンペーン分析 #003 - プレミアム旅行志向</span>
+                                            <span class="text-muted-foreground font-medium">ステータス</span><span class="font-semibold capitalize">draft</span>
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-2">
+                                            <div class="space-y-1">
+                                                <label class="text-muted-foreground font-medium">開始日</label>
+                                                <input type="datetime-local" class="flex w-full rounded-md border border-input bg-white px-3 py-1 shadow-sm h-7 text-xs" value="2026-04-14T10:00">
+                                            </div>
+                                            <div class="space-y-1">
+                                                <label class="text-muted-foreground font-medium">終了日</label>
+                                                <input type="datetime-local" class="flex w-full rounded-md border border-input bg-white px-3 py-1 shadow-sm h-7 text-xs" value="2026-04-21T23:59">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gray-50 border rounded-lg p-4 space-y-4">
+                                        <div class="space-y-3 pb-4 border-b">
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                                    <h4 class="font-semibold text-sm text-gray-500">メール件名</h4>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm font-medium text-gray-900 pl-7">【ダミー】上位会員向けプレミアムツアーのご案内</p>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-sm text-gray-500 mb-2">メール本文</h4>
+                                            <div class="bg-white rounded-lg shadow-sm border p-4 text-sm text-gray-700 h-48 overflow-y-auto">
+                                                <p>ダミー会員 様</p><br>
+                                                <p>いつもご利用ありがとうございます。<br>本メールはレイアウト確認用のダミー本文です。</p><br>
+                                                <p>セグメント別の件名・本文・CTAの切り替え挙動を確認するための仮テキストを掲載しています。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="ma-seg-2" class="ma-tab-content mt-2 hidden">
+                                <div class="bg-gray-50 border rounded-lg p-4 space-y-4">
+                                    <div class="space-y-3 pb-4 border-b">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                                <h4 class="font-semibold text-sm text-gray-500">メール件名</h4>
+                                            </div>
+                                        </div>
+                                        <p class="text-sm font-medium text-gray-900 pl-7">【ダミー】ポイント重視ユーザー向け週末セール</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-sm text-gray-500 mb-2">メール本文</h4>
+                                        <div class="bg-white rounded-lg shadow-sm border p-4 text-sm text-gray-700 h-48 overflow-y-auto">
+                                            <p>ダミー会員B 様</p><br>
+                                            <p>今週末限定のキャンペーン情報をお届けします。<br>ポイント還元と予約のしやすさを重視した構成です。</p><br>
+                                            <p>短時間で比較しやすいよう、人気順と価格帯別のプランを掲載しています。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="ma-seg-3" class="ma-tab-content mt-2 hidden">
+                                <div class="bg-gray-50 border rounded-lg p-4 space-y-4">
+                                    <div class="space-y-3 pb-4 border-b">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                                <h4 class="font-semibold text-sm text-gray-500">メール件名</h4>
+                                            </div>
+                                        </div>
+                                        <p class="text-sm font-medium text-gray-900 pl-7">【ダミー】お久しぶりの方向け再来クーポンのご案内</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-sm text-gray-500 mb-2">メール本文</h4>
+                                        <div class="bg-white rounded-lg shadow-sm border p-4 text-sm text-gray-700 h-48 overflow-y-auto">
+                                            <p>ダミー会員C 様</p><br>
+                                            <p>前回のご利用からしばらく経ったお客様向けに、<br>再開のきっかけになる限定クーポンをご用意しました。</p><br>
+                                            <p>連休や季節イベントに合わせたおすすめプランを、厳選してご紹介します。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2 pt-4 border-t shrink-0">
+                    <button onclick="toggleMaApprovalModal(false)" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2">キャンセル</button>
+                    <button onclick="submitMaApproval()" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">承認して送信</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Control
+        function toggleModal(show) {
+            const overlay = document.getElementById('modal-overlay');
+            const drawer = document.getElementById('modal-drawer');
+            if (show) {
+                overlay.classList.remove('hidden');
+                drawer.classList.remove('translate-x-full');
+            } else {
+                overlay.classList.add('hidden');
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        // MA Approval Modal Control
+        function toggleMaApprovalModal(show) {
+            const modal = document.getElementById('ma-approval-modal');
+            if (show) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function showDetailView() {
+            document.getElementById('list-view').classList.add('hidden');
+            document.getElementById('detail-view').classList.remove('hidden');
+            toggleModal(false);
+        }
+
+        function showListView() {
+            document.getElementById('detail-view').classList.add('hidden');
+            document.getElementById('list-view').classList.remove('hidden');
+        }
+
+        function initializeDetailCardEvents() {
+            const cards = document.querySelectorAll('[data-open-detail]');
+            cards.forEach((card) => {
+                card.onclick = showDetailView;
+            });
+        }
+
+        function openTab(evt, tabId) {
+            const container = evt.currentTarget.parentElement;
+            const buttons = container.getElementsByClassName('tab-btn');
+            for (let i = 0; i < buttons.length; i += 1) {
+                buttons[i].className = buttons[i].className.replace(' tab-active', ' tab-inactive');
+                buttons[i].classList.remove('bg-white', 'shadow-sm', 'text-gray-900');
+                buttons[i].classList.add('text-gray-600');
+            }
+
+            evt.currentTarget.className = evt.currentTarget.className.replace(' tab-inactive', ' tab-active');
+            evt.currentTarget.classList.remove('text-gray-600');
+            evt.currentTarget.classList.add('bg-white', 'shadow-sm', 'text-gray-900');
+
+            const contentGroup = document.getElementById(tabId).parentElement;
+            const contents = contentGroup.getElementsByClassName('tab-content');
+            for (let i = 0; i < contents.length; i += 1) {
+                contents[i].classList.add('hidden');
+            }
+            document.getElementById(tabId).classList.remove('hidden');
+        }
+
+        function openPreviewTab(evt, tabId) {
+            const container = evt.currentTarget.parentElement;
+            const buttons = container.getElementsByClassName('preview-tab-btn');
+            for (let i = 0; i < buttons.length; i += 1) {
+                buttons[i].className = buttons[i].className.replace(' preview-tab-active', ' preview-tab-inactive');
+                buttons[i].classList.remove('bg-white', 'text-gray-900');
+                buttons[i].classList.add('text-gray-600');
+            }
+
+            evt.currentTarget.className = evt.currentTarget.className.replace(' preview-tab-inactive', ' preview-tab-active');
+            evt.currentTarget.classList.remove('text-gray-600');
+            evt.currentTarget.classList.add('bg-white', 'text-gray-900');
+
+            const contentGroup = document.getElementById(tabId).parentElement;
+            const contents = contentGroup.getElementsByClassName('preview-tab-content');
+            for (let i = 0; i < contents.length; i += 1) {
+                contents[i].classList.add('hidden');
+            }
+            document.getElementById(tabId).classList.remove('hidden');
+        }
+
+        // MA Modal Tabs
+        function openMaTab(evt, tabId) {
+            const container = evt.currentTarget.parentElement;
+            const buttons = container.getElementsByClassName('ma-tab-btn');
+            for (let i = 0; i < buttons.length; i += 1) {
+                buttons[i].classList.remove('bg-white', 'shadow-sm', 'text-gray-900');
+                buttons[i].classList.add('text-gray-600');
+            }
+
+            evt.currentTarget.classList.remove('text-gray-600');
+            evt.currentTarget.classList.add('bg-white', 'shadow-sm', 'text-gray-900');
+
+            const contentGroup = document.getElementById(tabId).parentElement;
+            const contents = contentGroup.getElementsByClassName('ma-tab-content');
+            for (let i = 0; i < contents.length; i += 1) {
+                contents[i].classList.add('hidden');
+            }
+            document.getElementById(tabId).classList.remove('hidden');
+        }
+
+        function submitMaApproval() {
+            alert("MA に承認して送信しました。");
+            toggleMaApprovalModal(false);
+            showListView(); // 一覧画面に戻る（オプション）
+        }
+
+        // アプリ選択時の表示切替
+        function toggleAppOptions() {
+            const channelInput = document.querySelector('input[name="channelSelect"]:checked');
+            const channel = channelInput ? channelInput.value : '';
+            const appWrapper = document.getElementById('appOptionsWrapper');
+            
+            if (channel === 'app') {
+                appWrapper.classList.remove('hidden');
+            } else {
+                appWrapper.classList.add('hidden');
+            }
+        }
+
+        // Handle Create
+        function handleCreate(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get Input Values (Required fields)
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('releaseDate').value;
+            const channelInput = document.querySelector('input[name="channelSelect"]:checked');
+            const channel = channelInput ? channelInput.value : '';
+            const detail = document.getElementById('researchDetail').value;
+
+            // Basic validation
+            if (!name || !date || !channel || !detail) {
+                alert("必須項目を入力してください");
+                return;
+            }
+            if (channel === 'app') {
+                const selectedAppFormats = document.querySelectorAll('input[name="appWorkflow"]:checked');
+                if (selectedAppFormats.length === 0) {
+                    alert("アプリ配信形式を1つ以上選択してください");
+                    return;
+                }
+            }
+
+            // Configure Icon based on Method
+            let methodIconHTML = '';
+            let methodLabel = '';
+            
+            if (channel === 'app') {
+                const appFormatInputs = document.querySelectorAll('input[name="appWorkflow"]:checked');
+                const formatLabels = Array.from(appFormatInputs).map((input) => input.getAttribute('data-label'));
+                methodLabel = `アプリ (${formatLabels.join(' / ')})`;
+                methodIconHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone size-[12px] text-[#030213]"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>`;
+            } else if (channel === 'mail') {
+                methodLabel = 'メール';
+                methodIconHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail size-[12px] text-[#030213]"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>`;
+            } else {
+                methodLabel = 'DM';
+                methodIconHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle size-[12px] text-[#030213]"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>`;
+            }
+
+            // Create New Card HTML
+            const newCardHTML = `
+            <div data-open-detail class="border text-card-foreground shadow h-[307px] cursor-pointer hover:bg-accent transition-colors bg-white border-[rgba(0,0,0,0.1)] rounded-[14px]">
+                <div class="p-[25px] flex flex-col gap-[30px] h-full">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-[16px] font-normal text-neutral-950 leading-[16px] line-clamp-1">${name}</h3>
+                        <div class="flex items-start gap-2">
+                            <div class="flex flex-col gap-[8px] items-end">
+                                <div class="bg-green-500 rounded-[8px] px-[9px] py-[3px]"><span class="text-[12px] text-white leading-[16px]">準備中</span></div>
+                                <div class="bg-[#eceef2] rounded-[8px] px-[9px] py-[3px] flex items-center gap-[4px]">
+                                    ${methodIconHTML}
+                                    <span class="text-[12px] text-[#030213] leading-[16px]">${methodLabel}</span>
+                                </div>
+                            </div>
+                            <button onclick="event.stopPropagation()" class="hover:bg-accent rounded-md p-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-[16px] flex-1 min-h-0">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-[8px]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar size-[14px] text-[#717182]"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                                <span class="text-[14px] text-[#717182] leading-[20px]">${date}</span>
+                            </div>
+                        </div>
+                        <p class="text-[14px] text-neutral-950 leading-[20px] whitespace-pre-wrap line-clamp-3">${detail}</p>
+                        <div class="flex items-center gap-[8px] flex-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag size-[14px] text-[#717182]"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+
+            // Insert new card after the "Create New" card (index 1)
+            const grid = document.getElementById('card-grid');
+            const createCard = grid.firstElementChild;
+            createCard.insertAdjacentHTML('afterend', newCardHTML);
+            initializeDetailCardEvents();
+
+            // Close modal and reset form
+            toggleModal(false);
+            document.getElementById('create-form').reset();
+            
+            // アプリ用のセレクトボックスをリセット（隠す）
+            document.getElementById('appOptionsWrapper').classList.add('hidden');
+        }
+
+        initializeDetailCardEvents();
+    </script>
+
